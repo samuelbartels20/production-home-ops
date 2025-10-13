@@ -16,7 +16,7 @@ jobs:
         id: determine-next-tag
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
         with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: "${{ secrets.TOKEN }}"
           result-encoding: string
           script: |
             const { data: releases } = await github.rest.repos.listReleases({
@@ -52,4 +52,4 @@ jobs:
         with:
           generateReleaseNotes: true
           tag: "${{ steps.determine-next-tag.outputs.result }}"
-          token: "${{ secrets.GITHUB_TOKEN }}"
+          token: "${{ secrets.TOKEN }}"
