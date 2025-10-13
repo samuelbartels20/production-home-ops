@@ -1,0 +1,223 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/budimanjojo/talhelper/master/pkg/config/schemas/talconfig.json
+---
+clusterName: kubernetes
+
+talosVersion: "${talosVersion}"
+kubernetesVersion: "${kubernetesVersion}"
+
+endpoint: https://192.168.8.139:6443
+additionalApiServerCertSans: &sans
+  - "127.0.0.1"
+  - "192.168.8.139"
+  - "homelab.samcloud.online"
+  - "samcloud.online"
+additionalMachineCertSans: *sans
+
+clusterPodNets: ["10.42.0.0/16"]
+clusterSvcNets: ["10.43.0.0/16"]
+
+# Disable built-in CNI to use Cilium
+cniConfig:
+  name: none
+
+nodes:
+  - hostname: "control-plane-1"
+    ipAddress: "192.168.8.129"
+    installDisk: "/dev/sdb"
+    machineSpec:
+      secureboot: false
+    talosImageURL: factory.talos.dev/installer/708747e350d604ae9e57227d8dcf274091453ddb1097b765d4ea8884f1992c1f
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "40:b0:34:35:6a:21"
+        dhcp: false
+        addresses:
+          - "192.168.8.129/24"
+        routes:
+          - network: "0.0.0.0/0"
+            gateway: "192.168.8.1"
+        mtu: 1500
+        vip:
+          ip: "192.168.8.139"
+    volumes:
+      - name: EPHEMERAL
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          maxSize: 50GiB
+    userVolumes:
+      - name: openebs-hostpath
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          maxSize: 50GiB
+      - name: rook-ceph
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          minSize: 50GiB
+          grow: true
+  - hostname: "control-plane-2"
+    ipAddress: "192.168.8.128"
+    installDisk: "/dev/sdb"
+    machineSpec:
+      secureboot: false
+    talosImageURL: factory.talos.dev/installer/708747e350d604ae9e57227d8dcf274091453ddb1097b765d4ea8884f1992c1f
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "c8:d3:ff:3b:e5:e5"
+        dhcp: false
+        addresses:
+          - "192.168.8.128/24"
+        routes:
+          - network: "0.0.0.0/0"
+            gateway: "192.168.8.1"
+        mtu: 1500
+        vip:
+          ip: "192.168.8.139"
+    volumes:
+      - name: EPHEMERAL
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          maxSize: 50GiB
+    userVolumes:
+      - name: openebs-hostpath
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          maxSize: 50GiB
+      - name: rook-ceph
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          minSize: 50GiB
+          grow: true
+  - hostname: "control-plane-3"
+    ipAddress: "192.168.8.131"
+    installDisk: "/dev/sdb"
+    machineSpec:
+      secureboot: false
+    talosImageURL: factory.talos.dev/installer/708747e350d604ae9e57227d8dcf274091453ddb1097b765d4ea8884f1992c1f
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "c8:d3:ff:3b:e6:34"
+        dhcp: false
+        addresses:
+          - "192.168.8.131/24"
+        routes:
+          - network: "0.0.0.0/0"
+            gateway: "192.168.8.1"
+        mtu: 1500
+        vip:
+          ip: "192.168.8.139"
+    volumes:
+      - name: EPHEMERAL
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          maxSize: 50GiB
+    userVolumes:
+      - name: openebs-hostpath
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          maxSize: 50GiB
+      - name: rook-ceph
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          minSize: 50GiB
+          grow: true
+  - hostname: "control-plane-4"
+    ipAddress: "192.168.8.127"
+    installDisk: "/dev/sdb"
+    machineSpec:
+      secureboot: false
+    talosImageURL: factory.talos.dev/installer/708747e350d604ae9e57227d8dcf274091453ddb1097b765d4ea8884f1992c1f
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "40:b0:34:35:6a:1f"
+        dhcp: false
+        addresses:
+          - "192.168.8.127/24"
+        routes:
+          - network: "0.0.0.0/0"
+            gateway: "192.168.8.1"
+        mtu: 1500
+        vip:
+          ip: "192.168.8.139"
+    volumes:
+      - name: EPHEMERAL
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          maxSize: 50GiB
+    userVolumes:
+      - name: openebs-hostpath
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          maxSize: 50GiB
+      - name: rook-ceph
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          minSize: 50GiB
+          grow: true
+  - hostname: "control-plane-5"
+    ipAddress: "192.168.8.130"
+    installDisk: "/dev/sdb"
+    machineSpec:
+      secureboot: false
+    talosImageURL: factory.talos.dev/installer/708747e350d604ae9e57227d8dcf274091453ddb1097b765d4ea8884f1992c1f
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "c8:d3:ff:3b:04:ca"
+        dhcp: false
+        addresses:
+          - "192.168.8.130/24"
+        routes:
+          - network: "0.0.0.0/0"
+            gateway: "192.168.8.1"
+        mtu: 1500
+        vip:
+          ip: "192.168.8.139"
+    volumes:
+      - name: EPHEMERAL
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          maxSize: 30GiB
+    userVolumes:
+      - name: openebs-hostpath
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          maxSize: 30GiB
+      - name: rook-ceph
+        provisioning:
+          diskSelector:
+            match: disk.transport == "sata"
+          minSize: 40GiB
+          grow: true
+
+# Global patches
+patches:
+  - "@./patches/global/machine-files.yaml"
+  - "@./patches/global/machine-kubelet.yaml"
+  - "@./patches/global/machine-network.yaml"
+  - "@./patches/global/machine-sysctls.yaml"
+  - "@./patches/global/machine-time.yaml"
+
+# Controller patches
+controlPlane:
+  patches:
+    - "@./patches/controller/admission-controller-patch.yaml"
+    - "@./patches/controller/cluster.yaml"
+
