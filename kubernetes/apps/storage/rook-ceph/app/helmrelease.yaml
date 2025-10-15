@@ -10,6 +10,14 @@ spec:
     kind: OCIRepository
     name: rook-ceph
   interval: 1h
+  timeout: 15m  # Rook-Ceph operator creates 126+ resources
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
   values:
     csi:
       cephFSKernelMountOptions: ms_mode=prefer-crc
