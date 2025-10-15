@@ -1,0 +1,6 @@
+---
+      machine:
+        kubelet:
+          extraArgs:
+            feature-gates: GracefulNodeShutdown=true,MixedProtocolLBService=true
+            rotate-server-certificates: "true"
