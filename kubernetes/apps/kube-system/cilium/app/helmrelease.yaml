@@ -17,6 +17,9 @@ spec:
     remediation:
       retries: 3
   values:
+    cluster:
+      name: production-home
+      id: 1
     autoDirectNodeRoutes: true
     bpf:
       masquerade: true
