@@ -24,8 +24,9 @@ metadata:
 spec:
   dependsOn:
     - name: rook-ceph
-    - name: volsync
-      namespace: volsync-system
+    # Volsync dependency removed - not deployed yet
+    # - name: volsync
+    #   namespace: volsync-system
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2
       kind: HelmRelease
