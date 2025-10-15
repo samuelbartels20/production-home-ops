@@ -37,7 +37,7 @@ affinity:
           topologyKey: kubernetes.io/hostname
 
 # Provider regex for Talos nodes
-providerRegex: ^talos-\d$
+providerRegex: ^control-plane-\d$
 
 # CSR approval configuration
 maxExpirationSeconds: "31536000"  # 1 year (must be a string)
