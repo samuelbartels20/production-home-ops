@@ -75,7 +75,7 @@ spec:
       apiserver:
         replicas: 1
         service:
-          type: ClusterIP
+          type: LoadBalancer
     ipam:
       mode: kubernetes
     ipv4NativeRoutingCIDR: "10.42.0.0/16"
