@@ -38,8 +38,8 @@ affinity:
 
 # Provider regex for Talos nodes
 providerRegex: ^(control-plane|worker)-[0-9]+$
-allowedDnsNames:
-  - "system:node:%s"
+# allowedDnsNames:
+#   - "system:node:%s"
 
 # CSR approval configuration
 maxExpirationSeconds: "31536000"  # 1 year (must be a string)
