@@ -10,6 +10,14 @@ spec:
     kind: OCIRepository
     name: rook-ceph-cluster
   interval: 1h
+  timeout: 15m  # CephCluster deployment takes time
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
   values:
     monitoring:
       enabled: true
