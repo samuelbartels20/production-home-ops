@@ -109,6 +109,13 @@ spec:
             memory: 64Mi
           limits:
             memory: 128Mi
+        osd-prepare:
+          requests:
+            cpu: 50m
+            memory: 50Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
 
       storage:
         useAllNodes: false
