@@ -70,7 +70,7 @@ spec:
       storage:
         useAllNodes: true
         useAllDevices: false
-        devicePathFilter: /dev/sda6
+        devicePathFilter: /var/mnt/rook-ceph
         config:
           osdsPerDevice: "1"
     cephBlockPools:

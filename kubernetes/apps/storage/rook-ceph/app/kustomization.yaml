@@ -7,4 +7,4 @@ resources:
   # Disabled until Grafana operator is installed
   # - ./grafanadashboard.yaml
   - ./helmrelease.yaml
-  # - ./ocirepository.yaml
+  - ./ocirepository.yaml
