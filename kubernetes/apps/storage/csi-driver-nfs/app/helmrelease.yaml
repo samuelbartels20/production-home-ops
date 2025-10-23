@@ -94,7 +94,7 @@ spec:
     controller:
       enabled: true
       name: csi-nfs-controller
-      replicas: 2  # High availability
+      replicas: 1  # Single controller for stability
 
       # Environment variables from secrets
       env:
