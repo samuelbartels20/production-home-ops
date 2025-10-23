@@ -13,3 +13,4 @@ resources:
   - ./spegel/ks.yaml
   - ./kubelet-csr-approver/ks.yaml
   - ./multus/ks.yaml
+  - ./node-problem-detector/ks.yaml
