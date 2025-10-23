@@ -12,10 +12,3 @@ resources:
   - ./poddisruptionbudget.yaml
   - ./networkpolicy.yaml
 
-labels:
-  - pairs:
-      app.kubernetes.io/name: csi-driver-nfs
-    includeSelectors: true
-
-commonLabels:
-  app.kubernetes.io/name: csi-driver-nfs
