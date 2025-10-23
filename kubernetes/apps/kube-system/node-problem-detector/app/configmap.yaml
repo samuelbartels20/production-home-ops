@@ -6,22 +6,36 @@ metadata:
   namespace: kube-system
   labels:
     app.kubernetes.io/name: node-problem-detector
-    app.kubernetes.io/component: observability
 data:
   check-network.sh: |
     #!/bin/sh
-    # Check network connectivity using built-in tools
-    # Note: Using sh instead of bash for Alpine compatibility
-    if ! ping -c 1 -W 5 8.8.8.8 > /dev/null 2>&1; then
-      echo "Network problem detected: Cannot reach external network"
-      exit 1
-    fi
+    # Check network connectivity using available tools
+    # Note: NPD container doesn't have ping, so we use alternative methods
+
     # Check default gateway reachability using /proc/net/route
     DEFAULT_GW=$(awk '$2 == "00000000" {printf "%d.%d.%d.%d\n", "0x" substr($3,7,2), "0x" substr($3,5,2), "0x" substr($3,3,2), "0x" substr($3,1,2)}' /proc/net/route)
-    if [ -n "$DEFAULT_GW" ] && ! ping -c 1 -W 5 $DEFAULT_GW > /dev/null 2>&1; then
-      echo "Network problem detected: Cannot reach default gateway"
+
+    # Check if we have a valid default gateway
+    if [ -z "$DEFAULT_GW" ] || [ "$DEFAULT_GW" = "0.0.0.0" ]; then
+      echo "Network problem detected: No default gateway configured"
       exit 1
     fi
+
+    # Check if we have active network interfaces (with traffic)
+    # Look for interfaces with non-zero packet counts
+    ACTIVE_INTERFACES=$(awk 'NR>2 && $2 > 0 {print $1}' /proc/net/dev | wc -l)
+    if [ "$ACTIVE_INTERFACES" -eq 0 ]; then
+      echo "Network problem detected: No active network interfaces"
+      exit 1
+    fi
+
+    # Check if we can read network configuration files
+    if [ ! -r /proc/net/route ] || [ ! -r /proc/net/dev ]; then
+      echo "Network problem detected: Cannot access network configuration"
+      exit 1
+    fi
+
+    # Network appears to be working
     exit 0
 
   check-system-stats.sh: |

@@ -5,21 +5,10 @@ kind: Kustomization
 namespace: kube-system
 
 resources:
+  - ./helmrepository.yaml
   - ./helmrelease.yaml
   - ./configmap.yaml
-  # - ./prometheusrule.yaml
+  - ./prometheusrule.yaml
   - ./networkpolicy.yaml
-
-labels:
-  - pairs:
-      app.kubernetes.io/name: node-problem-detector
-      app.kubernetes.io/instance: node-problem-detector
-      app.kubernetes.io/component: observability
-      app.kubernetes.io/part-of: kube-system
-    includeSelectors: true
-
-commonLabels:
-  app.kubernetes.io/name: node-problem-detector
-  app.kubernetes.io/part-of: kube-system
-  production-grade: "true"
+  - ./rbac.yaml
 

@@ -6,9 +6,6 @@ metadata:
   namespace: kube-system
   labels:
     app.kubernetes.io/name: node-problem-detector
-    app.kubernetes.io/component: monitoring
-    prometheus: kube-prometheus-stack-prometheus
-    role: alert-rules
 spec:
   groups:
     - name: node-problem-detector
