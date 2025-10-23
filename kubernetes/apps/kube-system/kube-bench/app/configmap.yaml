@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kube-bench-config
+  namespace: kube-system
+  labels:
+    app.kubernetes.io/name: kube-bench
+    app.kubernetes.io/instance: kube-bench
+    app.kubernetes.io/component: security
+    app.kubernetes.io/part-of: kube-system
+    production-grade: "true"
+    security-hardened: "true"
+data:
+  config.yaml: |
+    ---
+    controls:
+      - id: 1
+        text: "Control Plane Security Configuration"
+        type: "master"
+      - id: 2
+        text: "Etcd Node Configuration"
+        type: "etcd"
+      - id: 3
+        text: "Control Plane Configuration"
+        type: "master"
+      - id: 4
+        text: "Worker Node Security Configuration"
+        type: "node"
+      - id: 5
+        text: "Kubernetes Policies"
+        type: "policies"
+
+    version_mapping:
+      "1.24": "cis-1.24"
+      "1.25": "cis-1.24"
+      "1.26": "cis-1.24"
+      "1.27": "cis-1.24"
+      "1.28": "cis-1.24"
+
+    target_mapping:
+      "k8s": "k8s"

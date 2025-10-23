@@ -6,3 +6,7 @@ namespace: kube-system
 resources:
   - ./helmrepository.yaml
   - ./helmrelease.yaml
+  - ./serviceaccount.yaml
+  - ./rbac.yaml
+  - ./configmap.yaml
+  - ./cronjob.yaml
