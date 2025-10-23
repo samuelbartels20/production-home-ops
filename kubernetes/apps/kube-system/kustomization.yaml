@@ -16,3 +16,4 @@ resources:
   - ./node-problem-detector/ks.yaml
   - ./tetragon/ks.yaml
   - ./node-feature-discovery/ks.yaml
+  - ./descheduler/ks.yaml
