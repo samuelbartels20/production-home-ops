@@ -5,11 +5,6 @@ metadata:
   namespace: kube-system
   labels:
     app.kubernetes.io/name: kube-bench
-    app.kubernetes.io/instance: kube-bench
-    app.kubernetes.io/component: security
-    app.kubernetes.io/part-of: kube-system
-    production-grade: "true"
-    security-hardened: "true"
   annotations:
     prometheus.io/scrape: "true"
     prometheus.io/path: "/metrics"
@@ -25,11 +20,6 @@ spec:
         metadata:
           labels:
             app.kubernetes.io/name: kube-bench
-            app.kubernetes.io/instance: kube-bench
-            app.kubernetes.io/component: security
-            app.kubernetes.io/part-of: kube-system
-            production-grade: "true"
-            security-hardened: "true"
           annotations:
             prometheus.io/scrape: "true"
             prometheus.io/path: "/metrics"

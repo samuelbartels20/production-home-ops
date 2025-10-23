@@ -4,10 +4,6 @@ metadata:
   name: kube-bench
   labels:
     app.kubernetes.io/name: kube-bench
-    app.kubernetes.io/instance: kube-bench
-    app.kubernetes.io/component: security
-    app.kubernetes.io/part-of: kube-system
-    production-grade: "true"
     security-hardened: "true"
 rules:
   - apiGroups: [""]
@@ -23,10 +19,6 @@ metadata:
   name: kube-bench
   labels:
     app.kubernetes.io/name: kube-bench
-    app.kubernetes.io/instance: kube-bench
-    app.kubernetes.io/component: security
-    app.kubernetes.io/part-of: kube-system
-    production-grade: "true"
     security-hardened: "true"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
