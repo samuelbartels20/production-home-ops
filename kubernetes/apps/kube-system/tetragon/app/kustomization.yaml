@@ -5,8 +5,9 @@ kind: Kustomization
 namespace: kube-system
 
 resources:
+  - ./helmrepository.yaml
   - ./helmrelease.yaml
-  # - ./prometheusrule.yaml
+  - ./prometheusrule.yaml
 
 configMapGenerator:
   - name: tetragon-values
