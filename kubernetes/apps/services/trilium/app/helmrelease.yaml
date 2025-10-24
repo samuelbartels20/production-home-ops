@@ -59,7 +59,7 @@ spec:
         parentRefs:
           - name: envoy-external
             namespace: network
-            sectionName: https
+            sectionName: http
         rules:
           - backendRefs:
               - identifier: app
