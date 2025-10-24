@@ -4,7 +4,7 @@ originRequest:
 
 ingress:
   - hostname: "samcloud.online"
-    service: &svc http://cilium-gateway-external.kube-system.svc.cluster.local
+    service: &svc http://envoy-external.network.svc.cluster.local:443
   - hostname: "*.samcloud.online"
     service: *svc
   - service: http_status:404
