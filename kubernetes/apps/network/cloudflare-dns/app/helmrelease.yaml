@@ -30,14 +30,14 @@ spec:
       - --cloudflare-dns-records-per-page=1000
       - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
       - --crd-source-kind=DNSEndpoint
-      - --gateway-name=external
-      - --gateway-namespace=kube-system
+      - --gateway-name=envoy-external
+      - --gateway-namespace=network
     triggerLoopOnEvent: true
     policy: sync
     sources: ["crd", "gateway-httproute"]
     txtPrefix: k8s.
     txtOwnerId: default
-    domainFilters: ["${SECRET_DOMAIN}"]
+    domainFilters: ["samcloud.online"]
     serviceMonitor:
       enabled: true
     podAnnotations:
