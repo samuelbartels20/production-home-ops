@@ -17,17 +17,6 @@ spec:
     remediation:
       retries: 3
   values:
-    configMaps:
-      config:
-        data:
-          config.yaml: |-
-            ingress:
-              - hostname: "*.samcloud.online"
-                originRequest:
-                  http2Origin: true
-                  originServerName: external.samcloud.online
-                service: https://envoy-external.{{ .Release.Namespace }}.svc.cluster.local:443
-              - service: http_status:404
     controllers:
       cloudflare-tunnel:
         strategy: RollingUpdate
