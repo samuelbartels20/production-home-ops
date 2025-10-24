@@ -5,9 +5,9 @@ kind: DNSEndpoint
 metadata:
   name: cloudflare-tunnel
   annotations:
-    external-dns.alpha.kubernetes.io/target: "external.samcloud.online"
+    external-dns.alpha.kubernetes.io/target: external.samcloud.online
 spec:
   endpoints:
-    - dnsName: "external.samcloud.online"
+    - dnsName: external.samcloud.online
       recordType: CNAME
       targets: ["e24e4983-ed6e-49c6-93c9-4f55e149b032.cfargotunnel.com"]
