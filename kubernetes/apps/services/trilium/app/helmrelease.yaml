@@ -57,9 +57,9 @@ spec:
       app:
         hostnames: ["trilium.samcloud.online"]
         parentRefs:
-          - name: envoy-external
-            namespace: network
-            sectionName: https
+          - name: external
+            namespace: kube-system
+            sectionName: http
         rules:
           - backendRefs:
               - identifier: app
