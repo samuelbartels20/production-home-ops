@@ -23,8 +23,9 @@ metadata:
 spec:
   dependsOn:
     - name: grafana
-    - name: rook-ceph-cluster
-      namespace: rook-ceph
+      namespace: observability
+    - name: openebs-hostpath
+      namespace: storage
   interval: 1h
   path: ./kubernetes/apps/observability/grafana/instance
   prune: true
