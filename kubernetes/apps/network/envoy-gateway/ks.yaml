@@ -12,6 +12,8 @@ spec:
   dependsOn:
     - name: certificates-import
       namespace: network
+    - name: grafana
+      namespace: observability
   interval: 1h
   path: ./kubernetes/apps/network/envoy-gateway/app
   prune: true
