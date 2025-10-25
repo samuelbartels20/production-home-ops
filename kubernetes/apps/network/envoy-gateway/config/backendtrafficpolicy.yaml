@@ -10,7 +10,7 @@ spec:
     - type: Brotli
     - type: Gzip
   connection:
-    bufferLimit: 64Mi
+    bufferLimit: 8Mi
   timeout:
     http:
       requestTimeout: 60s
