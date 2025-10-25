@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cloudflare-dns-secret
+  namespace: network
+stringData:
+  CF_API_TOKEN: "Rc_hF6SmuoBoK6zmVzRFeqZLGRMtOCH6s_NUauRt"
+  CF_ZONE_ID: "054c4ac80c6a64a4b16d98d3e46db619"

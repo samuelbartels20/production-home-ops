@@ -42,7 +42,15 @@ stringData:
   token: op://K8s/1password-token/password
   1password-credentials.json: op://K8s/1password-json/1password-credentials.json
 
-
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cloudflare-dns-secret
+  namespace: network
+stringData:
+  CF_API_TOKEN: op://K8s/cloudflare/CF_API_TOKEN
+  CF_ZONE_ID: op://K8s/cloudflare/CF_ZONE_ID
 ---
 apiVersion: v1
 kind: Secret
@@ -149,12 +157,12 @@ data:
 apiVersion: v1
 kind: Secret
 metadata:
-    name: tailscale-operator-secret  
+    name: tailscale-operator-secret
     namespace: network
     labels:
         reloader.stakater.com/auto: "true"
 stringData:
-     client_id: op://K8s/tailscale/TS_CLIENT_ID 
+     client_id: op://K8s/tailscale/TS_CLIENT_ID
      client_secret: op://K8s/tailscale/TS_CLIENT_SECRET
 
 
@@ -206,7 +214,7 @@ metadata:
 stringData:
   API_KEY: op://K8s/truenas-api-key/API_KEY
 
---- 
+---
 apiVersion: v1
 kind: Secret
 metadata:
@@ -359,7 +367,7 @@ stringData:
      minio_secret_access_key: op://K8s/postgres-backup/minio_secret_access_key
      s3_endpoint_url: op://K8s/postgres-backup/s3_endpoint_url
      s3_bucket_name: op://K8s/postgres-backup/s3_bucket_name
-     
+
 ---
 apiVersion: v1
 kind: Secret
