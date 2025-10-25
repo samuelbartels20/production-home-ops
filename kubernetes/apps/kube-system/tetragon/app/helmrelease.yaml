@@ -15,7 +15,7 @@ spec:
         kind: HelmRepository
         name: cilium
         namespace: kube-system
-      version: 1.4.0
+      version: 1.6.0
   install:
     timeout: 10m
     replace: true
