@@ -24,7 +24,7 @@ spec:
   dependsOn:
     - name: grafana
       namespace: observability
-    - name: openebs-hostpath
+    - name: openebs
       namespace: storage
   interval: 1h
   path: ./kubernetes/apps/observability/grafana/instance
