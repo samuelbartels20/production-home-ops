@@ -56,6 +56,14 @@ stringData:
 apiVersion: v1
 kind: Secret
 metadata:
+  name: cloudflare-issuer-secret
+  namespace: security
+stringData:
+  CLOUDFLARE_DNS_TOKEN: op://K8s/cloudflare/CLOUDFLARE_DNS_TOKEN
+---
+apiVersion: v1
+kind: Secret
+metadata:
   name: nut-exporter-secret
   namespace: observability
 stringData:
