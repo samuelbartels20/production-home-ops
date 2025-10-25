@@ -10,6 +10,7 @@ spec:
     kind: OCIRepository
     name: cloudflare-dns
   install:
+    crds: CreateReplace
     remediation:
       retries: -1
   upgrade:
