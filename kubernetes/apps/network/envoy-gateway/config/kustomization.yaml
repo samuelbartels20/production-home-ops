@@ -10,4 +10,3 @@ resources:
   - ./observability.yaml
   - ./internal.yaml
   - ./external.yaml
-  - ./podmonitor.yaml
