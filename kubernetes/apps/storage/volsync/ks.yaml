@@ -7,17 +7,17 @@ metadata:
 spec:
   dependsOn:
     - name: openebs
-      namespace: openebs-system
+      namespace: storage
     - name: snapshot-controller
       namespace: kube-system
   interval: 1h
-  path: ./kubernetes/apps/volsync-system/volsync/app
+  path: ./kubernetes/apps/storage/volsync/app
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  targetNamespace: volsync-system
+  targetNamespace: storage
   wait: true
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
@@ -29,11 +29,11 @@ spec:
   dependsOn:
     - name: volsync
   interval: 1h
-  path: ./kubernetes/apps/volsync-system/volsync/maintenance
+  path: ./kubernetes/apps/storage/volsync/maintenance
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  targetNamespace: volsync-system
+  targetNamespace: storage
   wait: false
