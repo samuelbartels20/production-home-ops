@@ -6,6 +6,5 @@ resources:
   - ./helmrelease.yaml
   - ./ocirepository.yaml
   - ./externalsecret.yaml
-  - ./grafanadashboard.yaml
   - ./httproute.yaml
   - ./receiver.yaml
