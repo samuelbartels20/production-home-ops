@@ -65,7 +65,7 @@ spec:
     route:
       app:
         hostnames:
-          - "{{ .Release.Name }}.turbo.ac"
+          - "{{ .Release.Name }}.samcloud.online"
         parentRefs:
           - name: envoy-internal
             namespace: network
@@ -95,8 +95,8 @@ spec:
             subPath: repository.config
       repository:
         type: nfs
-        server: expanse.internal
-        path: /mnt/eros/VolsyncKopia
+        server: 192.168.8.102
+        path: /mnt/homelab/applications/volumes
         globalMounts:
           - path: /repository
       tmpfs:
