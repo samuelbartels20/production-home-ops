@@ -40,24 +40,6 @@ nodes:
         mtu: 1500
         vip:
           ip: "192.168.8.139"
-    volumes:
-      - name: EPHEMERAL
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          maxSize: 50GiB
-    userVolumes:
-      - name: openebs-hostpath
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          maxSize: 50GiB
-      - name: rook-ceph
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          minSize: 50GiB
-          grow: true
   - hostname: "control-plane-2"
     ipAddress: "192.168.8.128"
     installDisk: "/dev/sdb"
@@ -77,24 +59,6 @@ nodes:
         mtu: 1500
         vip:
           ip: "192.168.8.139"
-    volumes:
-      - name: EPHEMERAL
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          maxSize: 50GiB
-    userVolumes:
-      - name: openebs-hostpath
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          maxSize: 50GiB
-      - name: rook-ceph
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          minSize: 50GiB
-          grow: true
   - hostname: "control-plane-3"
     ipAddress: "192.168.8.131"
     installDisk: "/dev/sdb"
@@ -114,24 +78,6 @@ nodes:
         mtu: 1500
         vip:
           ip: "192.168.8.139"
-    volumes:
-      - name: EPHEMERAL
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          maxSize: 50GiB
-    userVolumes:
-      - name: openebs-hostpath
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          maxSize: 50GiB
-      - name: rook-ceph
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          minSize: 50GiB
-          grow: true
   - hostname: "control-plane-4"
     ipAddress: "192.168.8.127"
     installDisk: "/dev/sdb"
@@ -151,24 +97,6 @@ nodes:
         mtu: 1500
         vip:
           ip: "192.168.8.139"
-    volumes:
-      - name: EPHEMERAL
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          maxSize: 50GiB
-    userVolumes:
-      - name: openebs-hostpath
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          maxSize: 50GiB
-      - name: rook-ceph
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          minSize: 50GiB
-          grow: true
   - hostname: "control-plane-5"
     ipAddress: "192.168.8.130"
     installDisk: "/dev/sdb"
@@ -188,24 +116,6 @@ nodes:
         mtu: 1500
         vip:
           ip: "192.168.8.139"
-    volumes:
-      - name: EPHEMERAL
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          maxSize: 30GiB
-    userVolumes:
-      - name: openebs-hostpath
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          maxSize: 30GiB
-      - name: rook-ceph
-        provisioning:
-          diskSelector:
-            match: disk.transport == "sata"
-          minSize: 40GiB
-          grow: true
 
 # Global patches
 patches:
