@@ -5,10 +5,9 @@ kind: Kustomization
 metadata:
   name: kopia
 spec:
-  components:
-  - ../../components/common
   dependsOn:
     - name: volsync
+      namespace: storage
   interval: 1h
   path: ./kubernetes/apps/storage/kopia/app
   postBuild:
