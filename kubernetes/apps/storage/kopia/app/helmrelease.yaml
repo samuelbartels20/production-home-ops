@@ -27,10 +27,7 @@ spec:
               - secretRef:
                   name: kopia-secret
             args:
-              - server
-              - start
-              - --without-password
-              - --ui
+              - --help
             probes:
               liveness: &probes
                 enabled: true
