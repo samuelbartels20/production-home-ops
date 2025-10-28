@@ -71,6 +71,10 @@ spec:
             namespace: network
             sectionName: https
     persistence:
+      repository:
+        type: emptyDir
+        globalMounts:
+          - path: /repository
       tmpfs:
         type: emptyDir
         advancedMounts:
