@@ -28,7 +28,6 @@ spec:
                   name: kopia-secret
             args:
               - --without-password
-              - --config-file=/config/repository.config
             probes:
               liveness: &probes
                 enabled: true
@@ -71,29 +70,7 @@ spec:
           - name: envoy-internal
             namespace: network
             sectionName: https
-    configMaps:
-      config:
-        data:
-          repository.config: |-
-            {
-              "storage": {
-                "type": "filesystem",
-                "config": {
-                  "path": "/repository"
-                }
-              },
-              "hostname": "kopia.{{ .Release.Namespace }}.svc.cluster.local",
-              "username": "kopia",
-              "description": "kopia-repository",
-              "enableActions": false
-            }
     persistence:
-      config-file:
-        type: configMap
-        identifier: config
-        globalMounts:
-          - path: /config/repository.config
-            subPath: repository.config
       repository:
         type: persistentVolumeClaim
         size: 10Gi
