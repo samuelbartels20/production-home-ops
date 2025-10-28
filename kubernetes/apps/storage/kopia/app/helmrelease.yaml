@@ -28,6 +28,7 @@ spec:
                   name: kopia-secret
             args:
               - --without-password
+              - --config-file=/config/repository.config
             probes:
               liveness: &probes
                 enabled: true
@@ -56,7 +57,7 @@ spec:
         runAsUser: 1000
         runAsGroup: 1000
         fsGroup: 1000
-        fsGroupChangePolicy: OnRootMismatch
+        fsGroupChangePolicy: Always
     service:
       app:
         ports:
@@ -81,9 +82,9 @@ spec:
                   "path": "/repository"
                 }
               },
-              "hostname": "volsync.{{ .Release.Namespace }}.svc.cluster.local",
-              "username": "volsync",
-              "description": "volsync",
+              "hostname": "kopia.{{ .Release.Namespace }}.svc.cluster.local",
+              "username": "kopia",
+              "description": "kopia-repository",
               "enableActions": false
             }
     persistence:
@@ -94,9 +95,10 @@ spec:
           - path: /config/repository.config
             subPath: repository.config
       repository:
-        type: nfs
-        server: 192.168.8.102
-        path: /mnt/homelab/applications/volumes
+        type: persistentVolumeClaim
+        size: 10Gi
+        accessMode: ReadWriteOnce
+        storageClass: truenas-nfs
         globalMounts:
           - path: /repository
       tmpfs:
