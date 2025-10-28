@@ -74,13 +74,6 @@ spec:
             namespace: network
             sectionName: https
     persistence:
-      repository:
-        type: persistentVolumeClaim
-        size: 10Gi
-        accessMode: ReadWriteOnce
-        storageClass: truenas-nfs
-        globalMounts:
-          - path: /repository
       tmpfs:
         type: emptyDir
         advancedMounts:
