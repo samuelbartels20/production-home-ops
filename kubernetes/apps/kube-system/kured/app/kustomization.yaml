@@ -11,4 +11,3 @@ resources:
   - ./servicemonitor.yaml
   - ./prometheusrule.yaml
   - ./network-policy.yaml
-  - ./helmrepository.yaml

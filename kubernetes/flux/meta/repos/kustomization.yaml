@@ -6,3 +6,4 @@ resources:
   - ./kubelet-csr-approver.yaml
   - ./external-secrets.yaml
   - ./bjw-s.yaml
+  - ./kured.yaml
