@@ -28,7 +28,7 @@ spec:
     # Image configuration
     image:
       repository: registry.k8s.io/nfd/node-feature-discovery
-      tag: v0.17.3
+      tag: v0.18.3
       pullPolicy: IfNotPresent
 
     # Feature gates for advanced functionality
