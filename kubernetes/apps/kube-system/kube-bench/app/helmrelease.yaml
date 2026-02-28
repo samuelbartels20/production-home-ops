@@ -121,7 +121,7 @@ spec:
                   hostPID: true
                   containers:
                     - name: kube-bench
-                      image: docker.io/aquasec/kube-bench:v0.7.1
+                      image: docker.io/aquasec/kube-bench:v0.15.0
                       command:
                         - kube-bench
                         - run
