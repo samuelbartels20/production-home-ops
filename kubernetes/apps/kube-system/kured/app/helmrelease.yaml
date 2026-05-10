@@ -47,7 +47,7 @@ spec:
     # Image configuration
     image:
       repository: ghcr.io/kubereboot/kured
-      tag: 1.15.0
+      tag: 1.21.0
       pullPolicy: IfNotPresent
 
     # Security context - hardened for production
